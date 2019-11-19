@@ -1,5 +1,5 @@
 {
-    "name": "setono/log-entry-bundle",
+    "name": "setono/sylius-log-entry-plugin",
     "type": "symfony-bundle",
     "description": "Symfony bundle that makes it easy to work with log entries",
     "keywords": [
