@@ -22,7 +22,7 @@ class LogEntry implements LogEntryInterface
     /** @var array|null */
     protected $context;
 
-    /** @var DateTimeInterface|null */
+    /** @var DateTimeInterface */
     protected $createdAt;
 
     /** @var DateTimeInterface|null */
