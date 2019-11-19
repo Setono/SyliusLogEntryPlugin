@@ -11,9 +11,14 @@
     "require": {
         "php": "^7.2",
         "doctrine/doctrine-bundle": "^1.0",
+        "doctrine/orm": "^2.7",
+        "psr/log": "^1.1",
+        "stof/doctrine-extensions-bundle": "^1.3",
         "symfony/config": "^4.0",
         "symfony/dependency-injection": "^4.0",
-        "symfony/framework-bundle": "^4.0"
+        "symfony/framework-bundle": "^4.0",
+        "thecodingmachine/safe": "^0.1.16",
+        "webmozart/assert": "^1.5"
     },
     "require-dev": {
         "korbeil/phpstan-generic-rules": "^0.2.2",
