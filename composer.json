@@ -1,0 +1,54 @@
+{
+    "name": "setono/log-entry-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle that makes it easy to work with log entries",
+    "keywords": [
+        "symfony",
+        "setono",
+        "log"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.2",
+        "doctrine/doctrine-bundle": "^1.0",
+        "symfony/config": "^4.0",
+        "symfony/dependency-injection": "^4.0",
+        "symfony/framework-bundle": "^4.0"
+    },
+    "require-dev": {
+        "korbeil/phpstan-generic-rules": "^0.2.2",
+        "localheinz/composer-normalize": "^1.1",
+        "matthiasnoback/symfony-dependency-injection-test": "^4.0",
+        "phpstan/phpstan": "^0.11",
+        "phpstan/phpstan-strict-rules": "^0.11",
+        "phpunit/phpunit": "^8.0",
+        "roave/security-advisories": "dev-master",
+        "symplify/easy-coding-standard": "^6.0",
+        "thecodingmachine/phpstan-safe-rule": "^0.1"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Setono\\LogEntryBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Setono\\LogEntryBundle\\": "tests/"
+        }
+    },
+    "prefer-stable": true,
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse -c phpstan.neon -l max src",
+        "check-style": "vendor/bin/ecs check --ansi src/",
+        "fix-style": "vendor/bin/ecs check --fix --ansi src/",
+        "test": "vendor/bin/phpunit"
+    }
+}
