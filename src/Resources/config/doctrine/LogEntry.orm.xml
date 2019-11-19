@@ -7,7 +7,7 @@
     <mapped-superclass name="Setono\LogEntryBundle\Entity\LogEntry" table="setono_log_entry__log_entry">
         <field name="level" length="9"/>
         <field name="message" type="text"/>
-        <field name="context" type="array"/>
+        <field name="context" type="array" nullable="true"/>
 
         <field name="createdAt" type="datetime">
             <gedmo:timestampable on="create"/>
