@@ -1,0 +1,14 @@
+setono_log_entry:
+    form:
+        log_entry:
+            level: Level
+            levels:
+                emergency: Emergency
+                alert: Alert
+                critical: Critical
+                error: Error
+                warning: Warning
+                notice: Notice
+                info: Info
+                debug: Debug
+            message: Message

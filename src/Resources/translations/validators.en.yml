@@ -1,0 +1,8 @@
+setono_log_entry:
+    log_entry:
+        level:
+            not_blank: The level cannot be blank
+            choice: You have to choose one of the valid values
+        message:
+            not_blank: The message cannot be blank
+            min_length: The message has to be at least 1 character
