@@ -1,5 +1,9 @@
 name: CI
-on: [push, pull_request]
+on:
+    push: ~
+    pull_request: ~
+    schedule:
+        - cron: 5 8 * * 3
 jobs:
     checks:
         name: 'PHP ${{ matrix.php-versions }} on ${{ matrix.operating-system }} with composer args: ${{ matrix.composer-args }}'
