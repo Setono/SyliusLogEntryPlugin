@@ -15,17 +15,17 @@ sylius_resource:
                 factory: Setono\SyliusLogEntryPlugin\Factory\LogEntryFactory
                 repository: Setono\SyliusLogEntryPlugin\Doctrine\ORM\LogEntryRepository
                 
-#sylius_grid:
-#    grids:
-#        app_admin_order_log_entry:
-#            extends: setono_sylius_log_entry_admin_log_entry
-#            driver:
-#                options:
-#                    class: "%app.model.order_log_entry.class%"
-#            limits: [1000]
-#            fields:
-#                notifyCustomer:
-#                    type: twig
-#                    label: setono_sylius_log_entry.ui.log_entry.notify_customer
-#                    options:
-#                        template: "@SyliusUi/Grid/Field/yesNo.html.twig"
+sylius_grid:
+    grids:
+        app_admin_order_log_entry:
+            extends: setono_sylius_log_entry_admin_log_entry
+            driver:
+                options:
+                    class: "%app.model.order_log_entry.class%"
+            limits: [1000]
+            fields:
+                notifyCustomer:
+                    type: twig
+                    label: setono_sylius_log_entry.ui.log_entry.notify_customer
+                    options:
+                        template: "@SyliusUi/Grid/Field/yesNo.html.twig"

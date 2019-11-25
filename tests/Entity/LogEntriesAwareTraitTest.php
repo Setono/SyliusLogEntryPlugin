@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Setono\SyliusLogEntryPlugin\Model\LogEntriesAwareInterface;
 use Setono\SyliusLogEntryPlugin\Model\LogEntriesAwareTrait;
 use Setono\SyliusLogEntryPlugin\Model\LogEntry;
+use Setono\SyliusLogEntryPlugin\Model\LogEntryInterface;
 
 final class LogEntriesAwareTraitTest extends TestCase
 {
@@ -18,7 +19,7 @@ final class LogEntriesAwareTraitTest extends TestCase
     {
         $obj = self::getObject();
 
-        $logEntry = new LogEntry();
+        $logEntry = self::getLogEntry();
 
         $obj->addLogEntry($logEntry);
 
@@ -33,7 +34,7 @@ final class LogEntriesAwareTraitTest extends TestCase
     {
         $obj = self::getObject();
 
-        $logEntry = new LogEntry();
+        $logEntry = self::getLogEntry();
 
         $obj->addLogEntry($logEntry);
         $obj->addLogEntry($logEntry);
@@ -48,8 +49,8 @@ final class LogEntriesAwareTraitTest extends TestCase
     {
         $obj = self::getObject();
 
-        $logEntry1 = new LogEntry();
-        $logEntry2 = new LogEntry();
+        $logEntry1 = self::getLogEntry();
+        $logEntry2 = self::getLogEntry();
 
         $obj->addLogEntry($logEntry1);
         $obj->addLogEntry($logEntry2);
@@ -65,5 +66,10 @@ final class LogEntriesAwareTraitTest extends TestCase
         return new class() implements LogEntriesAwareInterface {
             use LogEntriesAwareTrait;
         };
+    }
+
+    private static function getLogEntry(): LogEntryInterface
+    {
+        return new class extends LogEntry {};
     }
 }

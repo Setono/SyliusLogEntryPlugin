@@ -6,6 +6,7 @@ namespace Setono\SyliusLogEntryPlugin\DependencyInjection;
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 use Setono\SyliusLogEntryPlugin\Model\LogEntry;
+use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 
 final class SetonoSyliusLogEntryExtensionTest extends AbstractExtensionTestCase
 {
@@ -23,6 +24,6 @@ final class SetonoSyliusLogEntryExtensionTest extends AbstractExtensionTestCase
     {
         $this->load();
 
-        $this->assertContainerBuilderHasParameter('setono_sylius_log_entry.entity.log_entry.class', LogEntry::class);
+        $this->assertContainerBuilderHasParameter('setono_sylius_log_entry.driver', SyliusResourceBundle::DRIVER_DOCTRINE_ORM);
     }
 }
