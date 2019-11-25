@@ -12,18 +12,18 @@ sylius_grid:
                 createdAt: desc
             limits: [1000]
             fields:
-#                level:
-#                    type: twig
-#                    label: setono_sylius_log_entry.ui.log_entry.level
-#                    options:
-#                        template: "@SetonoSyliusLogEntryPlugin/Grid/Field/level.html.twig"
-#                        vars:
-#                            labels: "@SetonoSyliusLogEntryPlugin/Label/Level"
+                level:
+                    type: twig
+                    label: setono_sylius_log_entry.ui.level
+                    options:
+                        template: "@SetonoSyliusLogEntryPlugin/Grid/Field/level.html.twig"
+                        vars:
+                            labels: "@SetonoSyliusLogEntryPlugin/Label/Level"
                 message:
                     type: string
-                    label: setono_sylius_log_entry.ui.log_entry.message
+                    label: setono_sylius_log_entry.ui.message
                 createdAt:
                     type: datetime
-                    label: setono_sylius_log_entry.ui.log_entry.created_at
+                    label: setono_sylius_log_entry.ui.created_at
                     options:
                         format: "Y-m-d H:i:s"
