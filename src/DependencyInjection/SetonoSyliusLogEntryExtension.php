@@ -19,7 +19,7 @@ final class SetonoSyliusLogEntryExtension extends AbstractResourceExtension
     {
         $config = $this->processConfiguration($this->getConfiguration([], $container), $config);
 
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
 
         // Notice that we give an empty resources array here, but this ensures that the parameters are set in the AbstractResourceExtension
