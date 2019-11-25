@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Setono\SyliusLogEntryPlugin\Doctrine\ORM;
 
 use Doctrine\ORM\QueryBuilder;
+use Setono\SyliusLogEntryPlugin\Repository\LogEntryRepositoryInterface;
 use Sylius\Bundle\ResourceBundle\Doctrine\ORM\EntityRepository;
 
 class LogEntryRepository extends EntityRepository implements LogEntryRepositoryInterface

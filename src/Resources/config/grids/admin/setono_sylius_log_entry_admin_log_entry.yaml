@@ -9,6 +9,7 @@ sylius_grid:
                         arguments:
                             - $id
             limits: [1000]
+            # todo add sort by created desc
             fields:
                 level:
                     type: twig

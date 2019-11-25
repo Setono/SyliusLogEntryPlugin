@@ -6,10 +6,10 @@ namespace Setono\SyliusLogEntryPlugin\Factory;
 
 use Setono\SyliusLogEntryPlugin\Model\LogEntriesAwareInterface;
 use Setono\SyliusLogEntryPlugin\Model\LogEntryInterface;
-use Sylius\Component\Resource\Factory\FactoryInterface;
 
-final class LogEntryFactory implements FactoryInterface
+final class LogEntryFactory implements LogEntryFactoryInterface
 {
+    /** @var string */
     private $className;
 
     public function __construct(string $className)
@@ -17,23 +17,16 @@ final class LogEntryFactory implements FactoryInterface
         $this->className = $className;
     }
 
-    /**
-     * @return LogEntryInterface
-     */
-    public function createNew()
+    public function createNew(): LogEntryInterface
     {
         return new $this->className();
     }
 
-    /**
-     * @param LogEntriesAwareInterface $owner
-     *
-     * @return LogEntryInterface
-     */
-    public function createNewForOwner(LogEntriesAwareInterface $owner)
+    public function createNewForOwner(LogEntriesAwareInterface $owner): LogEntryInterface
     {
         $resource = $this->createNew();
         $resource->setOwner($owner);
+
         return $resource;
     }
 }
