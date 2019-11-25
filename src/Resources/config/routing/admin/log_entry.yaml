@@ -1,0 +1,32 @@
+#setono_sylius_log_entry_admin_log_entry_create:
+#    path: /new
+#    methods: [GET,POST]
+#    defaults:
+#        _controller: setono_sylius_log_entry.controller.log_entry:createAction
+#        _sylius:
+#            section: admin
+#            permission: true
+#            form: Setono\SyliusLogEntryPlugin\Form\Type\LogEntryType
+#            factory:
+#                method: createForReturnCase
+#                arguments:
+#                    channel: "expr:service('setono_sylius_log_entry.repository.return_case').find($returnCaseId)"
+#            template: "@SyliusAdmin/Crud/create.html.twig"
+#            redirect:
+#                route: setono_sylius_log_entry_admin_return_case_show
+#                parameters:
+#                    id: $returnCaseId
+#            vars:
+#                # Used for form action route
+#                route:
+#                    parameters:
+#                        returnCaseId: $returnCaseId
+#                # Used for Cancel button, see AdminBundle/Crud/Create/_content.html.twig
+#                index:
+#                    route:
+#                        name: setono_sylius_log_entry_admin_return_case_show
+#                        parameters:
+#                            id: $returnCaseId
+#                templates:
+#                    form: "@SetonoSyliusLogEntryPlugin/Admin/LogEntry/Create/_form.html.twig"
+#                    breadcrumb: "@SetonoSyliusLogEntryPlugin/Admin/LogEntry/Create/_breadcrumb.html.twig"

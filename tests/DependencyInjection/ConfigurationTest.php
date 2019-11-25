@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tests\Setono\LogEntryBundle;
+namespace Tests\Setono\SyliusLogEntryPlugin;
 
 use Matthias\SymfonyConfigTest\PhpUnit\ConfigurationTestCaseTrait;
 use PHPUnit\Framework\TestCase;
-use Setono\LogEntryBundle\DependencyInjection\Configuration;
+use Setono\SyliusLogEntryPlugin\DependencyInjection\Configuration;
 
 final class ConfigurationTest extends TestCase
 {

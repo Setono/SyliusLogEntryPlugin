@@ -1,5 +1,7 @@
-setono_log_entry:
+setono_sylius_log_entry:
     log_entry:
+        owner:
+            not_null: Specify owner
         level:
             not_blank: The level cannot be blank
             choice: You have to choose one of the valid values

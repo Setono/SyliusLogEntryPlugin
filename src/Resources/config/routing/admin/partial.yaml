@@ -1,0 +1,3 @@
+setono_sylius_log_entry_admin_partial_log_entry:
+    resource: "@SetonoSyliusLogEntryPlugin/Resources/config/routing/admin/partial/log_entry.yaml"
+    prefix: /return-case/{id}/log

@@ -1,0 +1,27 @@
+sylius_grid:
+    grids:
+        setono_sylius_log_entry_admin_log_entry:
+            driver:
+                name: doctrine/orm
+                options:
+                    repository:
+                        method: createByOwnerIdQueryBuilder
+                        arguments:
+                            - $id
+            limits: [1000]
+            fields:
+                level:
+                    type: twig
+                    label: setono_sylius_log_entry.ui.log_entry.level
+                    options:
+                        template: "@SetonoSyliusLogEntryPlugin/Grid/Field/level.html.twig"
+                        vars:
+                            labels: "@SetonoSyliusLogEntryPlugin/Label/Level"
+                message:
+                    type: string
+                    label: setono_sylius_log_entry.ui.log_entry.message
+                createdAt:
+                    type: datetime
+                    label: setono_sylius_log_entry.ui.log_entry.created_at
+                    options:
+                        format: "Y-m-d H:i:s"

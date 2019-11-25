@@ -1,0 +1,3 @@
+setono_sylius_log_entry_admin:
+    resource: "@SetonoSyliusLogEntryPlugin/Resources/config/routing/admin.yaml"
+    prefix: /admin

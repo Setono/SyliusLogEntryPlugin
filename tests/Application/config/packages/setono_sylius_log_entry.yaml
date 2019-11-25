@@ -1,0 +1,31 @@
+imports:
+    - { resource: "@SetonoSyliusLogEntryPlugin/Resources/config/app/config.yaml" }
+
+sylius_order:
+    resources:
+        order:
+            classes:
+                model: Tests\Setono\SyliusLogEntryPlugin\Application\Entity\Order
+
+sylius_resource:
+    resources:
+        app.order_log_entry:
+            classes:
+                model: Tests\Setono\SyliusLogEntryPlugin\Application\Entity\OrderLogEntry
+                factory: Setono\SyliusLogEntryPlugin\Factory\LogEntryFactory
+                repository: Tests\Setono\SyliusLogEntryPlugin\Application\Doctrine\ORM\OrderLogEntryRepository
+
+sylius_grid:
+    grids:
+        app_admin_order_log_entry:
+            extends: setono_sylius_log_entry_admin_log_entry
+            driver:
+                options:
+                    class: "%app.model.order_log_entry.class%"
+            limits: [1000]
+            fields:
+                notifyCustomer:
+                    type: twig
+                    label: setono_sylius_log_entry.ui.log_entry.notify_customer
+                    options:
+                        template: "@SyliusUi/Grid/Field/yesNo.html.twig"

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\Setono\LogEntryBundle;
+namespace Tests\Setono\SyliusLogEntryPlugin;
 
 use PHPUnit\Framework\TestCase;
-use Setono\LogEntryBundle\Entity\LogEntriesAwareInterface;
-use Setono\LogEntryBundle\Entity\LogEntriesAwareTrait;
-use Setono\LogEntryBundle\Entity\LogEntry;
+use Setono\SyliusLogEntryPlugin\Model\LogEntriesAwareInterface;
+use Setono\SyliusLogEntryPlugin\Model\LogEntriesAwareTrait;
+use Setono\SyliusLogEntryPlugin\Model\LogEntry;
 
 final class LogEntriesAwareTraitTest extends TestCase
 {

@@ -1,4 +1,4 @@
-setono_log_entry:
+setono_sylius_log_entry:
     form:
         log_entry:
             level: Level

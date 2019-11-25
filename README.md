@@ -1,4 +1,4 @@
-# Symfony Log Entry Bundle
+# Sylius Log Entry Plugin
 
 [![Latest Version][ico-version]][link-packagist]
 [![Latest Unstable Version][ico-unstable-version]][link-packagist]
@@ -10,120 +10,93 @@ Adds a `LogEntry` entity you can use to log messages and associate them with you
 
 ## Installation
 
-### Step 1: Download the bundle
+* Install plugin using `composer`:
 
-Open a command console, enter your project directory and execute the following command to download the latest stable version of this bundle:
+    ```bash
+    $ composer require setono/sylius-log-entry-plugin
+    ```
+
+* Add bundle to `config/bundles.php`:
+
+    ```php
+    <?php
+    // config/bundles.php
+    
+    return [
+        // ...
+        Setono\SyliusLogEntryPlugin\SetonoSyliusLogEntryPlugin::class => ['all' => true],
+    ];
+    ```
+
+* Configure entities & repositories like here:
+  
+    * [Entities](tests/Application/Entity)
+    * [Repositories](tests/Application/Doctrine/ORM)
+    * [Overriding](tests/Application/config/packages/setono_sylius_log_entry.yaml)
+
+* Import routes:
+
+    ```yaml
+    # config/routes/setono_sylius_log_entry.yaml
+    setono_sylius_log_entry:
+        resource: "@SetonoSyliusLogEntryPlugin/Resources/config/routes.yaml"
+    ```
+
+* Update your schema:
+
+    ```bash
+    # Generate and edit migration
+    bin/console doctrine:migrations:diff
+
+    # Then apply migration
+    bin/console doctrine:migrations:migrate
+    ```
+
+# Contribution
+
+## Installation
+
+To automatically execute installation steps, load fixtures 
+and run server with just one command, run:
 
 ```bash
-$ composer require setono/log-entry-bundle
+# Optional step, if 5 mins enough for webserver to try
+# @see https://getcomposer.org/doc/06-config.md#process-timeout
+composer config --global process-timeout 0
+
+composer try
 ```
 
-This command requires you to have Composer installed globally, as explained in the [installation chapter](https://getcomposer.org/doc/00-intro.md) of the Composer documentation.
+## Running plugin tests
 
+  - PHPSpec
 
-### Step 2: Enable the bundle
+    ```bash
+    $ composer phpspec
+    ```
 
-Enable the bundle by adding it to the list of registered bundles in `config/bundles.php`:
+  - Behat
 
-```php
-<?php
-$bundles = [
-    // ...
+    ```bash
+    $ composer behat
+    ```
+
+  - All tests (phpspec & behat)
+
+    ```bash
+    $ composer test
+    ```
     
-    Setono\LogEntryBundle\SetonoLogEntryBundle::class => ['all' => true],
-    
-    // ...
-];
-```
+## Pushing changes & making PRs
 
-### Step 3: Create entity
+Please run `composer all` to run all checks and tests before making PR or pushing changes to repo.
 
-Create your entity like this:
+[ico-version]: https://poser.pugx.org/setono/sylius-log-entry-plugin/v/stable
+[ico-unstable-version]: https://poser.pugx.org/setono/sylius-log-entry-plugin/v/unstable
+[ico-license]: https://poser.pugx.org/setono/sylius-log-entry-plugin/license
+[ico-github-actions]: https://github.com/Setono/SyliusLogEntryPlugin/workflows/Build/badge.svg
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/Setono/SyliusLogEntryPlugin.svg?style=flat-square
 
-```php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Entity;
-
-use Doctrine\ORM\Mapping as ORM;
-use Setono\LogEntryBundle\Entity\LogEntry as BaseLogEntry;
-
-/**
- * @ORM\Entity()
- * @ORM\Table(name="app_log_entry")
- */
-class LogEntry extends BaseLogEntry
-{
-    /**
-     * @var int
-     *
-     * @ORM\Id()
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue()
-     */
-    protected $id;
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-}
-```
-
-## Usage example
-
-Here is an `Order` entity where we want to let the administrator create log messages on the order:
-
-```php
-<?php
-
-declare(strict_types=1);
-
-namespace App\Entity;
-
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
-use Setono\LogEntryBundle\Entity\LogEntriesAwareInterface as SetonoLogEntryLogEntriesAwareInterface;
-use Setono\LogEntryBundle\Entity\LogEntriesAwareTrait as SetonoLogEntryLogEntriesAwareTrait;
-use Setono\LogEntryBundle\Entity\LogEntryInterface;
-
-/**
- * @ORM\Table(name="app_order")
- * @ORM\Entity()
- */
-class Order implements SetonoLogEntryLogEntriesAwareInterface
-{
-    use SetonoLogEntryLogEntriesAwareTrait {
-        SetonoLogEntryLogEntriesAwareTrait::__construct as private __setonoLogEntryBundleLogEntriesAwareTraitConstruct;
-    }
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\LogEntry")
-     * @ORM\JoinTable(name="app_order_log_entries",
-     *   joinColumns={@ORM\JoinColumn(name="order_id", referencedColumnName="id")},
-     *   inverseJoinColumns={@ORM\JoinColumn(name="log_entry_id", referencedColumnName="id", unique=true)}
-     * )
-     *
-     * @var Collection|LogEntryInterface[]
-     */
-    protected $logEntries;
-
-    public function __construct()
-    {
-        $this->__setonoLogEntryBundleLogEntriesAwareTraitConstruct();
-    }
-}
-
-```
-
-[ico-version]: https://poser.pugx.org/setono/log-entry-bundle/v/stable
-[ico-unstable-version]: https://poser.pugx.org/setono/log-entry-bundle/v/unstable
-[ico-license]: https://poser.pugx.org/setono/log-entry-bundle/license
-[ico-github-actions]: https://github.com/Setono/LogEntryBundle/workflows/Build/badge.svg
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/Setono/LogEntryBundle.svg?style=flat-square
-
-[link-packagist]: https://packagist.org/packages/setono/log-entry-bundle
-[link-github-actions]: https://github.com/Setono/LogEntryBundle/actions
-[link-code-quality]: https://scrutinizer-ci.com/g/Setono/LogEntryBundle
+[link-packagist]: https://packagist.org/packages/setono/sylius-log-entry-plugin
+[link-github-actions]: https://github.com/Setono/SyliusLogEntryPlugin/actions
+[link-code-quality]: https://scrutinizer-ci.com/g/Setono/SyliusLogEntryPlugin

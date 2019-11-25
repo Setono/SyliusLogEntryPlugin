@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tests\Setono\LogEntryBundle;
+namespace Tests\Setono\SyliusLogEntryPlugin;
 
 use DateTime;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LogLevel;
-use Setono\LogEntryBundle\Entity\LogEntry;
+use Setono\SyliusLogEntryPlugin\Model\LogEntry;
 
 final class LogEntryTest extends TestCase
 {

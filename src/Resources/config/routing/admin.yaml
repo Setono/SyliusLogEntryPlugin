@@ -1,0 +1,7 @@
+setono_sylius_log_entry_admin_partial:
+    resource: "@SetonoSyliusLogEntryPlugin/Resources/config/routing/admin/partial.yaml"
+    prefix: /_partial
+
+setono_sylius_log_entry_admin_log_entry:
+    resource: "@SetonoSyliusLogEntryPlugin/Resources/config/routing/admin/log_entry.yaml"
+    prefix: /log-entries/{ownerType}/{ownerId}/log

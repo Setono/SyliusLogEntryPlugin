@@ -1,0 +1,10 @@
+#setono_sylius_log_entry_admin_partial_log_entry_index:
+#    path: /
+#    methods: [GET]
+#    defaults:
+#        _controller: setono_sylius_log_entry.controller.log_entry:indexAction
+#        _sylius:
+#            section: admin
+#            template: "@SyliusAdmin/Crud/Index/_content.html.twig"
+#            permission: true
+#            grid: setono_sylius_log_entry_admin_log_entry
