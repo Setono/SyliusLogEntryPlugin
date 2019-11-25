@@ -10,7 +10,7 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 interface LogEntryRepositoryInterface extends RepositoryInterface
 {
     /**
-     * @param string|int $id
+     * @param string|int|mixed $id
      */
     public function createByOwnerIdQueryBuilder($id): QueryBuilder;
 }

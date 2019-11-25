@@ -1,0 +1,10 @@
+app_admin_partial_order_log_entry_index:
+    path: /admin/orders/{owner_id}/log-entries
+    methods: [GET]
+    defaults:
+        _controller: app.controller.order_log_entry:indexAction
+        _sylius:
+            grid: app_admin_order_log_entry
+            section: admin
+            permission: true
+            template: "@SyliusAdmin/Crud/Index/_content.html.twig"

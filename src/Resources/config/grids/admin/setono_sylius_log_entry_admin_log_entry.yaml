@@ -7,18 +7,18 @@ sylius_grid:
                     repository:
                         method: createByOwnerIdQueryBuilder
                         arguments:
-                            - $id
+                            - $owner_id
             sorting:
                 createdAt: desc
             limits: [1000]
             fields:
-                level:
-                    type: twig
-                    label: setono_sylius_log_entry.ui.log_entry.level
-                    options:
-                        template: "@SetonoSyliusLogEntryPlugin/Grid/Field/level.html.twig"
-                        vars:
-                            labels: "@SetonoSyliusLogEntryPlugin/Label/Level"
+#                level:
+#                    type: twig
+#                    label: setono_sylius_log_entry.ui.log_entry.level
+#                    options:
+#                        template: "@SetonoSyliusLogEntryPlugin/Grid/Field/level.html.twig"
+#                        vars:
+#                            labels: "@SetonoSyliusLogEntryPlugin/Label/Level"
                 message:
                     type: string
                     label: setono_sylius_log_entry.ui.log_entry.message
