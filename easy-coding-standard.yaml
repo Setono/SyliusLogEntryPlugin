@@ -1,8 +1,6 @@
 imports:
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/symfony.yaml' }
-    - { resource: 'vendor/symplify/easy-coding-standard/config/set/symfony-risky.yaml' }
+    - { resource: 'vendor/sylius-labs/coding-standard/easy-coding-standard.yml' }
 
-services:
-    PhpCsFixer\Fixer\Import\OrderedImportsFixer: ~
-    PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer: ~
-    PhpCsFixer\Fixer\ClassNotation\ClassAttributesSeparationFixer: ~
+parameters:
+    exclude_files:
+        - '**/tests/Application/**'

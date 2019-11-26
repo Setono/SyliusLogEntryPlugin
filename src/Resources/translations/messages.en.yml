@@ -1,4 +1,4 @@
-setono_log_entry:
+setono_sylius_log_entry:
     form:
         log_entry:
             level: Level
@@ -12,3 +12,16 @@ setono_log_entry:
                 info: Info
                 debug: Debug
             message: Message
+    ui:
+        created_at: Created at
+        level: Level
+        levels:
+            alert: Alert
+            critical: Critical
+            debug: Debug
+            emergency: Emergency
+            error: Error
+            info: Info
+            notice: Notice
+            warning: Warning
+        message: Message

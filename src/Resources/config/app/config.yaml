@@ -1,0 +1,2 @@
+imports:
+    - { resource: "../grids/admin/setono_sylius_log_entry_admin_log_entry.yaml" }

@@ -1,0 +1,2 @@
+setono_sylius_log_entry:
+    resource: "@SetonoSyliusLogEntryPlugin/Resources/config/routes.yaml"

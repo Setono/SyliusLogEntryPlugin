@@ -2,51 +2,35 @@
 
 declare(strict_types=1);
 
-namespace Setono\LogEntryBundle\Form\Type;
+namespace Setono\SyliusLogEntryPlugin\Form\Type;
 
 use function Safe\sprintf;
-use Setono\LogEntryBundle\Entity\LogEntry;
-use Symfony\Component\Form\AbstractType;
+use Setono\SyliusLogEntryPlugin\Model\LogEntry;
+use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class LogEntryType extends AbstractType
+abstract class LogEntryType extends AbstractResourceType
 {
-    /** @var string */
-    protected $dataClass;
-
-    /** @var string[] */
-    protected $validationGroups = [];
-
-    public function __construct(string $dataClass, array $validationGroups = [])
-    {
-        $this->dataClass = $dataClass;
-        $this->validationGroups = $validationGroups;
-    }
-
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('level', ChoiceType::class, [
-                'label' => 'setono_log_entry.form.log_entry.level',
+                'label' => 'setono_sylius_log_entry.form.log_entry.level',
                 'choices' => LogEntry::getLevels(),
                 'choice_label' => static function (string $level): string {
-                    return sprintf('setono_log_entry.form.log_entry.levels.%s', $level);
+                    return sprintf('setono_sylius_log_entry.form.log_entry.levels.%s', $level);
                 },
             ])
             ->add('message', TextareaType::class, [
-                'label' => 'setono_log_entry.form.log_entry.message',
+                'label' => 'setono_sylius_log_entry.form.log_entry.message',
             ])
         ;
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
+    public function getBlockPrefix(): string
     {
-        $resolver->setDefaults([
-            'data_class' => $this->dataClass,
-            'validation_groups' => $this->validationGroups,
-        ]);
+        return 'setono_sylius_log_entry_log_entry';
     }
 }
