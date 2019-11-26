@@ -7,6 +7,7 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 
 Adds a `LogEntry` entity you can use to log messages and associate them with your other entities.
+The test application has an example where we have added log entries to orders.
 
 ## Installation
 
@@ -31,7 +32,6 @@ Adds a `LogEntry` entity you can use to log messages and associate them with you
 * Configure entities & repositories like here:
   
     * [Entities](tests/Application/Entity)
-    * [Repositories](tests/Application/Doctrine/ORM)
     * [Overriding](tests/Application/config/packages/setono_sylius_log_entry.yaml)
 
 * Import routes:
