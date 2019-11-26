@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace spec\Setono\SyliusLogEntryPlugin\Model;
 
 use InvalidArgumentException;
@@ -12,8 +14,10 @@ class LogEntrySpec extends ObjectBehavior
 {
     public function let(): void
     {
-        $this->beAnInstanceOf(get_class(new class extends LogEntry {}));
+        $this->beAnInstanceOf(get_class(new class() extends LogEntry {
+        }));
     }
+
     public function it_is_initializable(): void
     {
         $this->shouldHaveType(LogEntry::class);

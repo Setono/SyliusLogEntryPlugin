@@ -20,4 +20,21 @@ class OrderLogEntry extends LogEntry
      * @ORM\JoinColumn(name="owner_id", nullable=false, onDelete="CASCADE")
      */
     protected $owner;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="notify_customer", type="boolean")
+     */
+    protected $notifyCustomer = false;
+
+    public function isNotifyCustomer(): bool
+    {
+        return $this->notifyCustomer;
+    }
+
+    public function setNotifyCustomer(bool $notifyCustomer): void
+    {
+        $this->notifyCustomer = $notifyCustomer;
+    }
 }

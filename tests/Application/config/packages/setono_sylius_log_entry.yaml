@@ -23,3 +23,9 @@ sylius_grid:
                 options:
                     class: "%app.model.order_log_entry.class%"
             limits: [1000]
+            fields:
+                notifyCustomer:
+                    type: twig
+                    label: Notify customer
+                    options:
+                        template: "@SyliusUi/Grid/Field/yesNo.html.twig"

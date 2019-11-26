@@ -70,6 +70,7 @@ final class LogEntriesAwareTraitTest extends TestCase
 
     private static function getLogEntry(): LogEntryInterface
     {
-        return new class extends LogEntry {};
+        return new class() extends LogEntry {
+        };
     }
 }

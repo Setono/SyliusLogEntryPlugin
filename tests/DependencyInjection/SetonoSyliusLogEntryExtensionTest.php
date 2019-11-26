@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Setono\SyliusLogEntryPlugin\DependencyInjection;
 
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
-use Setono\SyliusLogEntryPlugin\Model\LogEntry;
 use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 
 final class SetonoSyliusLogEntryExtensionTest extends AbstractExtensionTestCase

@@ -24,7 +24,7 @@ final class ConfigurationTest extends TestCase
     public function processed_value_contains_required_value(): void
     {
         $this->assertProcessedConfigurationEquals([], [
-            'driver' => SyliusResourceBundle::DRIVER_DOCTRINE_ORM
+            'driver' => SyliusResourceBundle::DRIVER_DOCTRINE_ORM,
         ]);
     }
 }
