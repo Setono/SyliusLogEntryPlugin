@@ -94,8 +94,8 @@ Please run `composer all` to run all checks and tests before making PR or pushin
 [ico-version]: https://poser.pugx.org/setono/sylius-log-entry-plugin/v/stable
 [ico-unstable-version]: https://poser.pugx.org/setono/sylius-log-entry-plugin/v/unstable
 [ico-license]: https://poser.pugx.org/setono/sylius-log-entry-plugin/license
-[ico-github-actions]: https://github.com/Setono/SyliusLogEntryPlugin/workflows/Build/badge.svg
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/Setono/SyliusLogEntryPlugin.svg?style=flat-square
+[ico-github-actions]: https://github.com/Setono/SyliusLogEntryPlugin/workflows/build/badge.svg
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/Setono/SyliusLogEntryPlugin.svg
 
 [link-packagist]: https://packagist.org/packages/setono/sylius-log-entry-plugin
 [link-github-actions]: https://github.com/Setono/SyliusLogEntryPlugin/actions
