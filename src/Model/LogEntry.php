@@ -43,15 +43,7 @@ abstract class LogEntry implements LogEntryInterface
 
     public function setOwner(?LogEntriesAwareInterface $owner): void
     {
-        if ($this->owner === $owner) {
-            return;
-        }
-
         $this->owner = $owner;
-
-        if (null !== $owner) {
-            $owner->addLogEntry($this);
-        }
     }
 
     public static function getLevels(): array
