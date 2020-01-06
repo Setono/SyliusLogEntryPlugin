@@ -7,3 +7,8 @@ services:
     # This is done because the command is not available, see https://github.com/Sylius/Sylius/issues/9510
     winzou\Bundle\StateMachineBundle\Command\winzouStateMachineDebugCommand:
         tags: ['console.command']
+    
+    Tests\Setono\SyliusLogEntryPlugin\Application\Form\Type\OrderLogEntryType:
+        arguments:
+            - "%app.model.order_log_entry.class%"
+        tags: ['form.type']

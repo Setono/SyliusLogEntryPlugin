@@ -19,11 +19,6 @@ interface LogEntryInterface extends ResourceInterface
     public function setOwner(?LogEntriesAwareInterface $owner): void;
 
     /**
-     * Returns an array of available log levels.
-     */
-    public static function getLevels(): array;
-
-    /**
      * Must return a default level.
      */
     public function getLevel(): string;

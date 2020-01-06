@@ -1,2 +1,11 @@
 setono_sylius_log_entry:
     resource: "@SetonoSyliusLogEntryPlugin/Resources/config/routes.yaml"
+
+app_admin_partial_order_log_entry:
+    path: /admin/orders/{id}/log-entry
+    controller: setono_sylius_log_entry.controller.action.create_log_entry
+    methods: [GET,POST]
+    defaults:
+        _setono_sylius_log_entry:
+            owner: "%sylius.model.order.class%"
+            form: Tests\Setono\SyliusLogEntryPlugin\Application\Form\Type\OrderLogEntryType

@@ -33,6 +33,7 @@
 
             {% include '@SyliusAdmin/Order/Show/_notes.html.twig' %}
             {{ render(path('app_admin_partial_order_log_entry_index', {'owner_id': resource.id})) }}
+            {{ render(path('app_admin_partial_order_log_entry', {'id': resource.id})) }}
         </div>
         <div class="four wide column">
             {{ sonata_block_render_event('sylius.admin.order.show.before_customer_information', {'resource': resource}) }}

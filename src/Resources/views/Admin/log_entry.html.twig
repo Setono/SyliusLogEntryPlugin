@@ -1,0 +1,13 @@
+{% form_theme form '@SyliusAdmin/Form/theme.html.twig' %}
+
+<div class="ui segment">
+    {{ form_errors(form) }}
+    {{ form_start(form, {'action': path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')), 'attr': {'class': 'ui form', 'novalidate': 'novalidate'}}) }}
+        {{ form_row(form.level) }}
+        {{ form_row(form.message) }}
+    <div class="ui buttons">
+        <button class="ui labeled icon primary button" type="submit"><i class="plus icon"></i>{{- 'sylius.ui.create'|trans -}}</button>
+    </div>
+    {{ form_row(form._token) }}
+    {{ form_end(form, {'render_rest': false}) }}
+</div>
