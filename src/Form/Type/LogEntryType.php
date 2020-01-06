@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-abstract class LogEntryType extends AbstractResourceType
+class LogEntryType extends AbstractResourceType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
